@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+
+	<title>Trust No One: Turning Your Domain into a Persona Identity Provider</title>
+	
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="core/deck.core.css">
+	
+	<!-- Extension CSS files go here. Remove or add as needed. -->
+	<link rel="stylesheet" href="extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="extensions/scale/deck.scale.css">
+
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="themes/style/sandstone.persona.css">
+	<link rel="stylesheet" href="./slides.css">
+	
+	<!-- Required Modernizr file -->
+	<script src="modernizr.custom.js"></script>
+</head>
+<body class="deck-container">
+
+<!-- Begin slides. Just make elements with a class of slide. -->
+
+<!-- INTRODUCTION -->
+
+<section class="slide no-md">
+  <div class="vcenter">
+    <p style="font-size: 2.2em;">Turning Your Domain into a</p>
+    <img style="padding-top: 1em;" src="./i/persona-logo-wordmark2.png" alt="Mozilla Persona" />
+    <p style="font-size: 2.2em; padding-top: 0.3em;">Identity Provider</p>
+    <footer style="padding-top: 3em;">
+      <p style="margin-top: 1em;">
+        Dan Callahan
+        <br />
+        <span style="font-size: 0.8em">
+        dancallahan.info
+        &mdash;
+        dcallahan@mozilla.com
+        &mdash;
+        @callahad
+        </span>
+      </p>
+      <p style="margin-top: 1em;">
+        Shane Tomlinson
+        <br/>
+        <span style="font-size: 0.8em">
+        shanetomlinson.com
+        &mdash;
+        stomlinson@mozilla.com
+        &mdash;
+        @shane_tomlinson
+        </span>
+      </p>
+    </footer>
+  </div>
+</section>
+
+<!-- WHAT: PERSONA -->
+
+<section class="slide">
+# Persona is...
+</section>
+
+<section class="slide black">
+# Demo
+</section>
+
+<section class="slide black">
+# Persona is an open source, federated login system.
+</section>
+
+<section class="slide black">
+# Open Standards
+</section>
+
+<section class="slide s-notfx">
+# This is _not_ about Firefox
+</section>
+
+<section class="slide no-md black s-browsers">
+  <h2>Supported Browsers</h2>
+
+  <h3>Desktop</h3>
+  <div class="icon-row">
+    <div class="icon-box"><img src="./i/browser/msie.png" /> 8+ </div>
+    <div class="icon-box"><img src="./i/browser/firefox.png" /> All </div>
+    <div class="icon-box"><img src="./i/browser/chrome.png" /> Stable </div>
+    <div class="icon-box"><img src="./i/browser/safari.png" /> Stable </div>
+    <div class="icon-box"><img src="./i/browser/opera.png" /> Stable </div>
+  </div>
+
+  <h3>Android</h3>
+  <div class="icon-row">
+    <div class="icon-box"><img src="./i/browser/android.png" /> 2.2 &ndash; 4.x </div>
+    <div class="icon-box"><img src="./i/browser/firefox.png" /> All </div>
+    <div class="icon-box"><img src="./i/browser/chrome.png" /> Stable </div>
+  </div>
+
+  <h3>iOS</h3>
+  <div class="icon-row">
+    <div class="icon-box"><img src="./i/browser/mobile_safari.png" /> 5.x &ndash; 6.x </div>
+  </div>
+</section>
+
+<section class="slide black">
+# Demo
+</section>
+
+<section class="slide black no-md">
+<h2>Identity Providers Matter</h2>
+
+<ol>
+  <li class="slide no-md" style="padding-left: 0;">Great login experience</li>
+  <li class="slide no-md" style="padding-left: 0;">Control your identity</li>
+  <li class="slide no-md" style="padding-left: 0;">Protect your privacy</li>
+  <li class="slide no-md" style="padding-left: 0;">Shape your own experience</li>
+  <li class="slide no-md" style="padding-left: 0;">Support open standards</li>
+</ol>
+</section>
+
+<!-- WHAT: PROTOCOL -->
+
+<section class="slide">
+# The Protocol
+</section>
+
+<section class="slide white">
+# Image 0
+</section>
+
+<section class="slide white">
+# Image 1
+</section>
+
+<section class="slide white">
+# Image 2
+</section>
+
+<section class="slide white">
+# Image 3
+</section>
+
+<section class="slide white">
+# Image 4
+</section>
+
+<!-- HOW -->
+
+<section class="slide">
+# Building Identity Providers
+</section>
+
+<section class="slide black">
+# Option 1: Delegate
+</section>
+
+<section class="slide black">
+# Option 2: Roll Your Own
+</section>
+
+<section class="slide white no-md">
+<h1 style="font-size: 10em; padding-bottom: 1em;">RTFM</h1>
+
+<p style="padding-top: 60%; text-align: center; font-size: 2em;">developer.mozilla.org/persona</p>
+</section>
+
+<section class="slide white">
+# Image 4 (Plain)
+</section>
+
+<section class="slide white">
+# Image 4-2
+</section>
+
+<section class="slide black">
+## Support Document
+
+1. Authenticate Users
+2. Provision Users
+3. Public Key
+</section>
+
+<section class="slide black no-md">
+<h2>/.well-known/browserid</h2>
+<p><pre>
+{
+    "public-key": {"algorithm":"RS",
+                   "n":"8606132...742061208063",
+                   "e":"65537"},
+    "authentication": "/browserid/sign_in.html",
+    "provisioning": "/browserid/provision.html"
+}
+</pre></p>
+</section>
+
+<section class="slide black no-md">
+<h2>The Authentication Page</h2>
+
+<p class="slide"><code style="font-size: 1.4em; color: #888">
+  navigator.id.<span class="white">beginAuthentication</span>(<br />
+  &nbsp;&nbsp;&nbsp;function(<span class="white">email</span>) { ... }<br />
+  );
+</code></p>
+
+<p class="slide" style="margin-top: 1em"><code style="font-size: 1.4em; color: #888">
+  navigator.id.<span class="white">completeAuthentication</span>();<br />
+</code></p>
+</section>
+
+<section class="slide black no-md">
+<h2>The Provisioning Page</h2>
+
+<p class="slide"><code style="font-size: 1.4em; color: #888">
+  navigator.id.<span class="white">beginProvisioning</span>(<br />
+  &nbsp;&nbsp;&nbsp;function(<span class="white">email, duration</span>) { ... }<br />
+  );
+</code></p>
+
+<p class="slide" style="margin-top: 1em"><code style="font-size: 1.4em; color: #888">
+  navigator.id.<span class="white">raiseProvisioningFailure</span>();<br />
+</code></p>
+
+<p class="slide" style="margin-top: 1em"><code style="font-size: 1.4em; color: #888">
+  navigator.id.<span class="white">genKeyPair</span>(<br />
+  &nbsp;&nbsp;&nbsp;function(<span class="white">pubkey</span>) { ... }<br />
+  );
+</code></p>
+
+<p class="slide" style="margin-top: 1em"><code style="font-size: 1.4em; color: #888">
+  navigator.id.<span class="white">registerCertificate</span>(cert);<br />
+</code></p>
+</section>
+
+<section class="slide black">
+## The Four Parts
+
+1. Support Document
+2. Authentication Page
+3. Provisioning Page
+4. Signing Backend
+</section>
+
+<section class="slide black no-md">
+<h2>Things to Keep in Mind</h2>
+
+<ol>
+<li>SSL</li>
+<li>Support Document</li>
+<li>Caching</li>
+</ol>
+
+<p class="slide" style="font-size: 1.4em; margin-left: .3em;"><code>scripts/check_primary_support</code></p>
+</section>
+
+<section class="slide black no-md">
+<h2>navigator.id?</h2>
+
+<h3 class="slide no-md" style="font-size: 1.8em; padding-left: 0.45em">Shims</h3>
+
+<ul>
+  <li class="slide">authentication_api.js</li>
+  <li class="slide">provisioning_api.js</li>
+  <li class="slide">include.js</li>
+</ul>
+</section>
+
+<section class="slide no-md black">
+<h2>Persona is in Beta</h2>
+
+<ul class="vcenter" style="list-style-type: none;">
+  <li class="slide no-md" style="padding-left: 0; margin-bottom: 1em;">Spend <em>one</em> afternoon with Persona this week.</li>
+  <li class="slide no-md" style="padding-left: 0; margin-bottom: 1em;"><em>Tell us</em> about your experience.</li>
+</ul>
+</section>
+
+<section class="slide no-md s-questions">
+  <h1>Questions?</h1>
+
+  <ul class="vcenter">
+    <li>developer.mozilla.org/persona</li>
+  </ul>
+</section>
+
+<! -- END -->
+
+<!-- Required JS files. -->
+<script src="jquery-1.7.2.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="extensions/hash/deck.hash.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+<script src="extensions/markdown/Markdown.Converter.js"></script>
+<script src="extensions/markdown/deck.markdown.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+	$(function() {
+    $.extend(true, $.deck.defaults, {
+      hashPrefix: '',
+    });
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>

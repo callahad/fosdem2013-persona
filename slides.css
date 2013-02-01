@@ -1,0 +1,58 @@
+/* Slides with a header and big body */
+
+.deck-container .slide.s-headerbigbody p {
+    font-size: 2em;
+}
+
+/* "This is NOT about Firefox" */
+
+.deck-container .slide.s-notfx {
+    background-color: #000;
+    background-image: url('./i/firefox_logo.png');
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+}
+
+.deck-container .slide.s-notfx h1 {
+    top: 75%;
+}
+
+/* Supported Browsers */
+
+.deck-container .slide.s-browsers h2 {
+    margin-bottom: .3em;
+}
+
+.deck-container .slide.s-browsers .icon-row {
+    font-size: .8em;
+    margin-bottom: .8em;
+}
+
+.deck-container .slide.s-browsers .icon-box {
+    margin-left: 2em;
+    display: inline-block;
+    text-align: center;
+}
+
+.deck-container .slide.s-browsers .icon-box img {
+    width: 96px;
+    height: 96px;
+}
+
+.deck-container .slide.s-browsers .icon-box img[src="./i/browser/opera.png"] {
+    width: 84px;
+    height: 84px;
+    padding: 6px;
+}
+
+/* Questions */
+
+.csstransforms .slide.s-questions h1 {
+    top: 30%;
+}
+
+.csstransforms .slide.s-questions ul {
+    top: 60%;
+    list-style-type: none;
+    font-size: .7em;
+}
