@@ -33,5 +33,24 @@
 </head>
 <body>
   <iframe src="slides.html"></iframe>
+  <script type="text/javascript">
+  document.body.addEventListener("keyup", goFullScreen, false);
+
+  function goFullScreen(evt) {
+    if (evt.keyCode == 70) {
+      // Trigger fullscreen
+      elem = document.documentElement;
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullScreen) {
+        elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+      } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+      } else {
+        // fail silently
+      }
+    };
+  }
+  </script>
 </body>
 </html>
